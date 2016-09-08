@@ -7,14 +7,14 @@
 
 // 文件上传配置文件
 var multer = require('multer');
-// 配置multer双穿文件配置
+// 配置multer上传文件配置
 var storage = multer.diskStorage({
-	// destination是文件上传的制定目录
+	// destination是文件上传的指定目录
 	destination: function(req,file,cb){
-		// 指定上传文件到马哥目录
+		// 指定上传文件到目录
 		cb(null, './public/images/userimg');
 	},
-	// filename是双穿文件之后的名称
+	// filename是上传文件之后的名称
 	filename: function(req,file,cb){
 		// 指定上传文件之后的名称还是原名称
 		cb(null,file.originalname);
