@@ -1,5 +1,6 @@
 //引入用户权限控制中间件
 var validate  = require('../controller/validate');
+var upload = require('../config/upload');
 //路由模块 app参数是实例化后的express对象
 module.exports = function(app){
 	//首页路由
@@ -58,5 +59,21 @@ module.exports = function(app){
 	//用户信息页面路由
 	app.get('/user/:username',function(req,res,next){
 		res.send('您的用户名为:' );
+	});
+	// 用户文件上传路由
+	app.get('/upload',validate.loginUp);
+	app.get('/upload',function(req,res,next){
+		res.render('/post',{
+			title:'文章发表',
+			error: req.flash('error').toString(),
+			success: req.flash('success').toString(),			
+		});
+	});
+	app.post('/upload',validate.loginUp);
+	// upload.array其中，第一个参数array表示可以同时上传多个文件，第二个参数5表示最多上传5个文件
+	app.post('/upload',upload.array('fillData',5),function(req,res){
+		// 上传成功
+		req.flash('success','文件上传成功');
+		res.redirect('/post');
 	});
 };
