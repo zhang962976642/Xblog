@@ -8,8 +8,8 @@
 var marked = require('marked');
 // 配置markdown语法高亮
 marked.setOptions({
-	renderer:new marked.Renderer(),
-	gfm: true,
+  renderer:new marked.Renderer(),
+  gfm: true,
   tables: true,
   breaks: false,
   pedantic: false,
