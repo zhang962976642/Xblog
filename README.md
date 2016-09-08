@@ -6,7 +6,7 @@
 * 前端:Bootstrap + jquery / vue + vuex(在考虑是否动工)
 * 后台:Nodejs + express
 
-项目依赖培植,请npm install 它们
+项目依赖中间件,请npm install 它们
 
 ```javascript
 "dependencies": {
@@ -28,9 +28,9 @@
   }
 ```
 目前实现了:
-1 用户登录、注册、验证、发表文章、退出、权限控制等功能
-2 使博客支持了Markdown语法，发表文章更简单^_^!~~
-3 用户文件、图片的上传功能
+1. 用户登录、注册、验证、发表文章、退出、权限控制等功能
+2. 使博客支持了Markdown语法，发表文章更简单^_^!~~
+3. 用户文件、图片的上传功能
 
 **后续功能正在开发**
 
@@ -47,4 +47,5 @@ ps: **有必要强调一下package.json**
 ``` code
 npm install -g nodemon
 ```
+**MDZZ 谁打我站出来，说好的不打脸**
 *END*
