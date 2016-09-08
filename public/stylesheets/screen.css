@@ -1,0 +1,135 @@
+/*
+* @Author: tianxing
+* @Date:   2016-09-01 14:38:43
+* @Last Modified by:   tianxing
+* @Last Modified time: 2016-09-05 16:58:47
+*/
+/*1024ipad设备的适配*/
+@media screen and (max-width: 1024px){
+	#sidebar{
+		width:10%;
+	}
+.logo{
+	padding-top:20px;
+}
+.logo .img-response{
+	width:40px;
+	height:40px;
+}
+.logo span{
+	display:none;
+}
+.wrapGroup .buttons>li{
+	text-align:center;
+}
+.wrapGroup .buttons>li>a{
+	padding: 0;
+}
+.wrapGroup .buttons>li>a>span{
+	display:none;
+}
+.wrapGroup .listLine>li>a{
+	padding-left:0 !important;
+	display:inline-block;
+	width:33%;
+}
+	#wrapContent{
+		width:90%;
+		left:10%;
+	}
+	.post .main span{
+		font-size:1.4rem;
+	}
+}
+
+/*768手机设备的适配*/
+@media screen and (max-width: 768px){
+	#sidebar{
+		width:30%;
+		left:-30%;
+	}
+
+	#wrapContent{
+		width:100%;
+		left:0;
+	}
+	/*768px设备sidebar兼容*/
+	#sidebar.phone{
+		left:0;
+	}
+	#header.phone,
+	#wrapContent.phone{
+		left:30%;
+		width:100%;
+	}
+	#sidebar,
+	#header,
+	#wrapContent{
+		transition: all .3s ease-in;
+		-webkit-transition: all .3s ease-in;
+		-ms-transition: all .3s ease-in;
+		-moz-transition: all .3s ease-in;
+		-o-transition: all .3s ease-in;
+	}
+	#sidebar .logo{
+		padding:20px 0;
+	}
+	.logo .img-response{
+		width:100px;
+		height: 100px;
+		border-radius: 50%;
+	}
+	.wrapGroup .buttons{
+		padding-left:18%;
+	}
+	.wrapGroup .buttons>li{
+		text-align:left;
+	}
+	.wrapGroup .buttons>li>a>i{
+		margin-right:10%;
+	}
+	.wrapGroup .buttons>li>a>span{
+		display:inline-block;
+	}
+	.wrapGroup .listLine{
+		padding-left:3%;
+	}
+	.wrapGroup .listLine>li>a{
+		width:10%;
+	}
+	/*文章列表容器 小于768px的设备才会有padding-top值*/
+	#article{
+		padding-top:50px;
+	}
+	/*login登录页面手机设备的适配*/
+	#loginForm .formWrap,
+	#regForm .formWrap{
+		width:80%;
+	}
+	.loginWrap .loginTitle,
+	.loginBox .loginWrap{
+		margin:0 auto;
+	}
+	.bgOverflow{
+		background-color:white;
+	}
+	/*文章发表页面*/
+	.postTitle{
+		margin:0;
+	}
+	/*文章展示首页*/
+	#article .post{
+		padding:10px 2%;
+	}
+	.post .Title{
+		width:100%;
+	}
+	.post .Title a{
+		font-size:2.0rem;
+	}
+	/*兼容手机端内容试图*/
+	.post .articleWrap blockquote,
+	.post .articleWrap>p{
+		font-size:1.4rem;
+	}
+}

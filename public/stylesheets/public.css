@@ -1,0 +1,357 @@
+/*
+* @Author: tianxing
+* @Date:   2016-08-31 15:43:20
+* @Last Modified by:   tianxing
+* @Last Modified time: 2016-09-05 17:07:18
+*/
+
+/*css样式初使化*/
+html,body{
+	width:100%;
+	height:100%;
+}
+body{
+	font-size:62.5%;  /*10px*/
+	color:#666;
+	background-color:white;
+  font-family: "Helvetica Neue",Arial,"Hiragino Sans GB",STHeiti,"Microsoft YaHei";
+  -webkit-font-smoothing: antialiased;
+}
+/*css样式初使化结束*/
+
+/*外部大容器wrapper开始*/
+#wrapper{
+	position:relative;
+	left:0;
+	width:100%;
+	height:100%;
+	background-color:white;
+	overflow-x: hidden;
+	min-height: 100%;
+}
+/*sidebar 以及 wrapContent盒子宽度设置*/
+#sidebar{
+	position:fixed;
+	top:0;
+	left:0;
+	width: 22%;
+	height:100%;
+	background-color:#202020;
+}
+
+#wrapContent{
+	width:78%;
+	position: absolute;
+	top:0;
+	left:22%;
+}
+/*logo*/
+.logo{
+	padding:40px 0 10px;
+}
+.logo .img-response{
+	width:140px;
+	height:140px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.logo>span{
+	display: block;
+	padding: 10px 0;
+	color:#999;
+	font-size:1.8rem;
+	cursor:pointer;
+	font-family: 700;
+}
+/*icon 小图标列表*/
+.wrapGroup .buttons{
+	margin:0 0 20px 0;
+}
+.buttons>li{
+	width:100%;
+	height:45px;
+	line-height:45px;
+	font-size:1.6rem;
+}
+.buttons>li>a{
+	display: block;
+	padding-left:27%;
+	text-decoration: none;
+	color:#999;
+	-webkit-transition:color .3s ease-in;
+	-moz-transition:color .3s ease-in;
+	-ms-transition:color .3s ease-in;
+	transition: color .3s ease-in;
+}
+.buttons>li>a:hover{
+	color:#666;
+}
+.buttons>li>a>i{
+	margin-right:3%;
+	height:45px;
+	line-height:45px;
+	font-size:2rem;
+	text-align:center;
+}
+.wrapGroup .listLine>li>a{
+	display:inline-block;
+	padding:0;
+	margin:0 10px;
+}
+.wrapGroup .listLine>li>a:first-child{
+	padding-left:18%;
+}
+/*sidebar 部分结束*/
+
+/*wrapContent 部分小于768px设备样式表 开始*/
+#header{
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height: 50px;
+	line-height: 50px;
+	text-align:center;
+	background-color:#323436;
+}
+.toggleSidebar{
+	position:absolute;
+	top:0;
+	left:0;
+	width:50px;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	cursor:pointer;
+}
+.toggleSidebar .fa{
+	display:block;
+	width:50px;
+	height:50px;
+	line-height: 50px;
+	font-size:3rem;
+}
+.headerTitle{
+	margin:0;
+	height:50px;
+	width:100%;
+	line-height: 50px;
+	text-align:center;
+}
+#header .headerTitle a{
+	vertical-align: middle;
+	color:#999;
+	font-size:1.6rem;
+	font-weight: 700;
+	text-decoration:none;
+}
+#header .aboutMe{
+	position:absolute;
+	top:10px;
+	right:10px;
+	display: block;
+	width:30px;
+	height:30px;
+	line-height: 30px;
+}
+#header .aboutMe img{
+	width:30px;
+	height: 30px;
+	border-radius: 50%;
+}
+/*文章内容部分开始*/
+
+/*文章内容部分结束*/
+/*wrapContent 部分小于768px设备样式表 结束*/
+/*通用successMsg 提示信息*/
+.successMsg{
+	font-size:1.2rem;
+	color:#22a3ff;
+}
+
+/*文章发表页面通用样式*/
+.postTitle{
+	background-color:white;
+}
+.table{
+	width:94%;
+	margin:0 auto;
+	max-width: 94%;
+}
+.postBtn{
+	margin-top:20px;
+	float:right;
+}
+/*文章展示首页section部分开始*/
+#article{
+	width:100%;
+	overflow-x: auto;
+}
+#article .post{
+	width: 100%;
+	padding:20px 4%;
+	border-top: solid 1px #ddd;
+	border-bottom:solid 1px #fff;
+}
+.post .Title{
+	margin:0;
+	width:70%;
+}
+.post .Title a{
+	display:block;
+	width:100%;
+	line-height: 30px;
+	text-decoration: none;
+	color:#333;
+	font-size:3rem;
+	font-weight: 300;
+}
+.post .main{
+	width:30%;
+	line-height:30px;
+	padding:0 10px;
+}
+.post .main .author,
+.post .main .postTitle i{
+	font-weight: 700;
+	margin-right:5px;
+}
+.post .main span{
+	display:inline-block;
+	font-size:1.6rem;
+}
+.post .comment{
+	display:inline-block;
+	width:100%;
+}
+.post .main .comment a{
+	display: inline-block;
+	width:100%;
+	text-decoration:none;	
+	color:#999;
+}
+.marginHeight{
+	margin-bottom:20px;
+}
+/*内容区域*/
+.post .articleWrap blockquote{
+	border-left-color: #2479CC;
+	background-color:#f8f8f8;
+	padding:18px 20px 15px;
+}
+.post .articleWrap>p{
+	font-size:1.6rem;
+	line-height: 1.8;
+	margin:15px 0 16px 0;
+	word-break: break-word;
+	color:#666;
+}
+.post .articleWrap>p>img{
+	max-width: 400px;
+	width: 100%;
+}
+.post .articleWrap .more>a{
+	text-decoration:none;
+}
+.post .articleWrap .more>a>i{
+	margin-left:5px;
+}
+/*文章展示区域完毕*/
+
+/*reg、login登录页面以及注册页面css样式表*/
+.loginBox{
+	padding:0;
+	height: 100%;
+	background:url('/images/loginBg.jpg') no-repeat center;
+	background-size: cover;
+}
+.loginBox .row{
+	margin:0;
+}
+.loginBox .row>div{
+	padding:0;
+}
+.loginBox .toHostory{
+	width:100%;
+	height: 50px;
+	background-color:rgba(158,161,206,0.1);
+}
+.loginBox .toggleSidebar{
+	margin:0;
+}
+.loginBox .toggleSidebar a{
+	text-decoration:none;
+	color:#a9a9a9;
+}
+.loginBox .loginWrap{
+	margin: 160px auto 0;
+	width: 80%;
+	height: auto;
+	background:url(/images/loginInput.png) no-repeat center;
+}
+.loginWrap .loginTitle{
+	margin: 0 auto;
+	padding-top:30px;
+	text-align:center;
+}
+.loginTitle .img-response{
+	display: block;
+	margin:0 auto;
+	width:100px;
+	height: 100px;
+	border-radius: 50%;
+}
+.loginTitle>span{
+	font-size:2.2rem;
+}
+.loginWrap .formSubmit{
+	margin-top:30px;
+}
+.formWrap{
+	width:45%;
+	margin:0 auto;
+}
+.formWrap .formGroup{
+	margin:0 auto;
+	width: 96%;
+	border:solid 1px #d5d5d5;	
+	border-radius: 3px;
+	background-color:rgb(255,255,255);
+}
+.formGroup .formContent:not(first-child){
+	border-bottom:solid 1px #d5d5d5;	
+}
+.formGroup .formContent{
+	display:block;
+	margin:0;
+	padding:14px 11px;
+	width:100%;
+	color:#555;
+	font-size:1.3rem;
+	border:none;
+	outline:none;
+}
+.formGroup .formContent:focus{
+	outline:none;
+}
+.formWrap .loginBtn{
+	margin:20px auto 0;
+	width: 96%;
+}
+.formWrap .getReg{
+	box-sizing: border-box;
+	padding:15px 0 30px 0;
+	margin:0 auto;
+	width: 96%;
+	text-align:right;
+	margin-bottom:0;
+}
+.getReg>a{
+	text-decoration: none;
+}
+/*通用errorMsg 提示信息*/
+.errorMsg{
+	font-size:1.2rem;
+	color:red;
+	font-weight: 700;
+}

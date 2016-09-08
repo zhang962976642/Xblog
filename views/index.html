@@ -1,0 +1,68 @@
+<%- include header.html %>
+  <article class="post">
+  	<h1 class="Title pull-left">
+  		<a href="#">Nodejs实战本项目之博客开发!</a>
+  		<span></span>
+  	</h1>
+  	<div class="main pull-right hidden-xs text-right">
+  		<span class="author">张超</span>
+  		<span class="postTitle">发表于&nbsp;<i>2016-09-02</i></span>
+  		<span class="comment pull-right">
+  			<a href="#">2 comment</a>
+  		</span>
+  	</div>
+  	<div class="clearfix marginHeight"></div>
+  	<!--整体内容-->
+	<div class="articleWrap">
+		<blockquote>
+			<p>原文: <a href="https://www.h5jun.com/post/pi-num8.html">https://www.h5jun.com/post/pi-num8.html</a></p>
+		</blockquote>
+		<p>
+			<a href="#">前面的文章</a>我们说过，树莓派的 GPIO （通用输入输出）口设置为 OUTPUT 状态时，可以用程序控制它的电平高低，从而输出 0 和 1 逻辑。树莓派 Model B+ 一共有 26 个 GPIO 接口，今天我们用它其中的 12 个来驱动一组 4 个八段数码管。
+		</p>
+		<p>
+			在讲解具体实现之前，我们先来看一下成品：
+		</p>
+		<p>
+			<a href="http://weibo.com/p/230444961d86257b47c7ee06c08c0a42979814">
+				<img src="https://p.ssl.qhimg.com/d/inn/932c6216/num8.jpg" alt="草莓派" style="max-width:400px;width:100%;"/>
+			</a>
+		</p>
+		<p class="more">
+			<a href="#">阅读全文<i class="fa fa-angle-double-right"></i></a>
+		</p>
+	</div>
+  </article>
+  <!--第二篇内容-->
+  <% docs.forEach(function(data,index){ %>
+  <article class="post">
+  	<h1 class="Title pull-left">
+  		<a href="#"><%= data.title %>!</a>
+  		<span></span>
+  	</h1>
+  	<div class="main pull-right hidden-xs text-right">
+  		<span class="author"><%= data.name %></span>
+  		<span class="postTitle">
+  			发表于&nbsp;
+  			<i><% var str = data.time.toLocaleString(); var _str = str.split(' ') %> <%= _str[0]%></i>
+  		</span>
+  		<span class="comment pull-right">
+  			<a href="#">2 comment</a>
+  		</span>
+  	</div>
+  	<div class="clearfix marginHeight"></div>
+  	<!--整体内容-->
+	<div class="articleWrap">
+		<blockquote>
+			<p>原文: <a href="<%= data.titleSrc %>"><%= data.titleSrc %></a></p>
+		</blockquote>
+		<p>
+			<%- data.info %>
+		</p>
+		<p class="more">
+			<a href="#">阅读全文<i class="fa fa-angle-double-right"></i></a>
+		</p>
+	</div>
+  </article>
+  <% }) %>
+<%- include footer.html %>

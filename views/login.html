@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<%- include public.html %>
+<body>
+	<div class="content-fluid loginBox">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<!-- 后退按钮 -->
+				<header class="toHostory visible-xs">
+					<h1 class="toggleSidebar">
+						<a href="/">
+							<i class="fa fa-arrow-left"></i>
+						</a>
+					</h1>
+				</header>
+				<section class="loginWrap">
+					<h1 class="loginTitle">
+						<img class="img-response" src="/images/logo.png">
+						<span>
+							<%= title %>
+						</span>
+					</h1>
+					<!-- 登录表单 -->
+					<form id="loginForm" class="formSubmit" method="post">
+						<div class="formWrap">
+							<div class="formGroup">
+								<input class="formContent" type="text" name="username" placeholder="手机号码或邮箱">
+								<input class="formContent" type="password" name="password" placeholder="密码">
+							</div>
+							<button class="btn btn-block btn-primary loginBtn" type="submit">登录</button>
+							<p class="getReg">
+								<span class="text-left errorMsg">
+								</span>
+								<a href="/reg" title="立即注册">立即注册?</a>
+								<span class="pull-left errorMsg">
+									<% if(error){ %>
+										<%= error %>
+									<% } %>
+								</span>
+								<span class="pull-left successMsg">
+									<% if(success){ %>
+										<%= success %>
+									<% } %>
+								</span>
+							</p>
+						</div>
+					</form>
+				</section>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

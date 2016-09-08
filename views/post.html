@@ -1,0 +1,31 @@
+<% include header.html %>
+  <h1 class="text-center postTitle">
+  	<%= title %>
+  </h1>
+  <table class="table table-hover table-bordered table-response">
+  	<tr>
+  		<th>发表新文章</th>
+  	</tr>
+  	<tr>
+  		<td>
+  			<form id="postForm" method="post">
+  				<div class="form-group">
+  					<label for="articleId">标题</label>
+  					<input type="text" name="title" id="articleId" class="form-control" placeholder="文章标题">
+  				</div>
+  				<div class="form-group">
+  					<label for="articleAuthed">作者</label>
+  					<input type="text" name="name" id="articleAuthed" class="form-control" placeholder="文章作者">
+  				</div>
+  				<div class="form-group">
+  					<label for="titleSrc">文章源地址</label>
+  					<input type="url" name="titleSrc" id="titleSrc" class="form-control" placeholder="http://www.baidu.com"/>
+  				</div>
+  				<textarea class="form-control" rows="8"  placeholder="message" name="message"></textarea>
+  				<button class="btn btn-primary postBtn" type="submit">发表</button>
+  				<div class="clearfix"></div>
+  			</form>
+  		</td>
+  	</tr>
+  </table>
+<% include footer.html %>
