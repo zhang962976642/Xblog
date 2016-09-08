@@ -1,7 +1,7 @@
 # Xblog
 使用Node.js+express+mongodb搭建的博客项目
 
-注意在 **使用mongoose操作mongodb时集合名会在后面加个S,如User使用mongoose会自动添加S变成Users文档**
+注意在 **使用mongoose操作mongodb时集合名会在后面加个S,如文档模型User使用mongoose会自动添加S变成Users文档**
 
 项目架构:
 
