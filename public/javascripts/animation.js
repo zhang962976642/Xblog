@@ -2,7 +2,7 @@
 * @Author: tianxing
 * @Date:   2016-09-03 09:55:29
 * @Last Modified by:   tianxing
-* @Last Modified time: 2016-09-03 10:13:14
+* @Last Modified time: 2016-09-09 17:20:07
 */
 $(function(){
 	var sidebar = $('#sidebar'),
@@ -16,5 +16,4 @@ $(function(){
 		HeaderLeft: header,
 		ToggleClass: iClass
 	});
-
 });
