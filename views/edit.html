@@ -1,0 +1,72 @@
+
+
+<% include header.html %>
+ <% docs.forEach(function(data,index){ %>
+ 	 <h1 class="text-center postTitle">
+  	<%= title %>
+  </h1>
+  <table class="table table-hover table-bordered table-response">
+  	<tr>
+  		<th><%= title %></th>
+  	</tr>
+  	<tr>
+  		<td>
+  			<form id="postForm" method="post" action="/edit/<%= data.name %>/<%= data.title %>">
+  				<div class="form-group">
+  					<label for="articleId">标题</label>
+  					<input type="text" name="title" id="articleId" class="form-control" value="<%= data.title %>" disabled>
+  				</div>
+  				<div class="form-group">
+  					<label for="articleAuthed">作者</label>
+  					<input type="text" name="name" id="articleAuthed" class="form-control" value="<%= data.name %>" disabled>
+  				</div>
+  				<div class="form-group">
+  					<label for="titleSrc">文章源地址</label>
+  					<input type="url" name="titleSrc" id="titleSrc" class="form-control" value="<%= data.titleSrc %>" disabled>
+  				</div>
+  				<textarea class="form-control" rows="10"  placeholder="message" name="message"></textarea>
+          <span class="errorMsg">
+            <% if(error){ %>
+              <%= error %>
+            <% } %>
+          </span>
+          <div class="btn-group postBtn">
+            <button class="btn btn-info" type="button" data-toggle="modal" data-target="#uploadFile">图片上传</button>
+            <button class="btn btn-primary" type="submit">Edit Article</button>  
+          </div>
+  				<!-- <button class="btn btn-primary postBtn" type="submit">发表</button>
+          <button class="btn btn-success postBtn" type="button">图片上传</button>  -->
+  				<div class="clearfix"></div>
+  			</form>
+  		</td>
+  	</tr>
+  </table>
+  <div class="modal fade" id="uploadFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <form method="post" action="/upload" enctype="multipart/form-data">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        <!-- modal头部标题 -->
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+              <span class="sr-only">Close</span>
+            </button>
+            <h4 class="modal-title">
+              文件上传
+            </h4>
+          </div>
+          <!-- modal中间内容区域 -->
+          <div class="modal-body">
+            <input  type="file" name="fillData">
+          </div>
+          <!--modal footer -->
+          <div class="modal-footer">
+            <button class="btn btn-defailt" data-dismiss="modal">Close</button>
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+ <% }) %>
+<% include footer.html %>

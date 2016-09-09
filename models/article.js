@@ -5,7 +5,7 @@ var mongoose = require('./db');
 //创建文章模型
 var articleSchema = new mongoose.Schema({
 	title: { type: String, required: true },
-	name: { type: String, default: 'Tenderness的家' },
+	name: { type: String, default: '' },
 	info: { type: String },
 	time: { type: Date },
 	titleSrc:{ type: String, default:'http://www.xiaojuzi.com'},

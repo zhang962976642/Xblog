@@ -42,7 +42,7 @@ exports.getUserArticle = function(req,res,next){
 			res.render('user',{
 				title:user.name,
 				docs:data,
-				user:req.session.username,
+				user:req.session.user,
 				success:req.flash('success').toString(),
 				error:req.flash('error').toString(),
 			});

@@ -3,6 +3,8 @@ var validate  = require('../controller/validate');
 var upload = require('../config/upload');
 //获取文章信息
 var getArticle = require('../controller/getPost');
+// 修改文章信息
+var uploadArticle = require('../controller/edit');
 //路由模块 app参数是实例化后的express对象
 module.exports = function(app){
 	//首页路由
@@ -76,4 +78,13 @@ module.exports = function(app){
 	app.get('/u/:username',getArticle.getUserArticle);
 	// 获取文章信息分类页面
 	app.get('/u/:username/:title',getArticle.getTitleArticle);
+	// 文章修改路由
+	app.post('/edit/:username/:title',validate.loginUp);
+	app.get('/edit/:username/:title',uploadArticle.articleEdit);
+		// 文章修改post路由
+	app.post('/edit/:username/:title',validate.loginUp);
+	app.post('/edit/:username/:title',uploadArticle.articleUpdate);
+	// 文章删除路由
+	app.get('/remove/:username/:title',validate.loginUp);
+	app.get('/remove/:username/:title',uploadArticle.articleRemove);
 };

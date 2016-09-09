@@ -27,6 +27,12 @@
 		</p>
 		<p class="more">
 			<a href="#">阅读全文<i class="fa fa-angle-double-right"></i></a>
+      <span class="pull-right btn-group">
+        <% if(user && (user == data.name) ){ %>
+        <a href="/edit/<%= data.name %>/<%= data.title %>" class="btn btn-warning">Edit Article</a>
+        <a href="/remove/<%= data.name %>/<%= data.title %>" class="btn btn-danger">Removw</a>
+        <% } %>
+      </span>
 		</p>
 	</div>
   </article>
