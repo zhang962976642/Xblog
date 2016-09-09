@@ -4,7 +4,7 @@ exports.getPost = function(req,res,next){
 	var Article = require('../models/article'),
 		moment = require('moment');
 	//查询文章列表
-	Article.find({},function(err,data){
+	Article.find({},null,{sort:{time:1}},function(err,data){
 		if(err){
 			data = [];
 			req.flash('error','此文章不存在');

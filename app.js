@@ -42,7 +42,7 @@ app.use(session({
 	cookie: {
 		maxAge: 1000 * 60 * 60 * 24 * 30
 	}, //设置session的过期时间
-	//	resave: false,
+	resave: false,
 	store: new MongoStore({ //实例化连接一个monmgodb数据库url对象为mongodb的地址
 		//写入session的地址
 		url: 'mongodb://' + settings.host + '/' + settings.db
