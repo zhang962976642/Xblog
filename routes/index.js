@@ -1,12 +1,12 @@
 //引入用户权限控制中间件
 var validate  = require('../controller/validate');
 var upload = require('../config/upload');
+//获取文章信息
+var getArticle = require('../controller/getPost');
 //路由模块 app参数是实例化后的express对象
 module.exports = function(app){
 	//首页路由
-	//获取文章信息
-	var getArticle = require('../controller/getPost');
-	app.get('/',getArticle.getPost);
+	app.get('/',getArticle.getIndex);
 	//注册页面路由
 	//引入权限控制
 	app.get('/reg',validate.loginDown);
@@ -56,10 +56,6 @@ module.exports = function(app){
 	app.get('/logout',validate.loginUp);
 	var userLogout = require('../controller/logout');
 	app.get('/logout',userLogout.logout);
-	//用户信息页面路由
-	app.get('/user/:username',function(req,res,next){
-		res.send('您的用户名为:' );
-	});
 	// 用户文件上传路由
 	app.get('/upload',validate.loginUp);
 	app.get('/upload',function(req,res,next){
@@ -76,4 +72,8 @@ module.exports = function(app){
 		req.flash('success','文件上传成功');
 		res.redirect('/post');
 	});
+	//用户信息页面路由
+	app.get('/u/:username',getArticle.getUserArticle);
+	// 获取文章信息分类页面
+	app.get('/u/:username/:title',getArticle.getTitleArticle);
 };

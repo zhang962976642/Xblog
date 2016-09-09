@@ -37,11 +37,11 @@
   <% docs.forEach(function(data,index){ %>
   <article class="post">
   	<h1 class="Title pull-left">
-  		<a href="#"><%= data.title %>!</a>
+  		<a href="u/<%= data.name %>/<%= data.title %>"><%= data.title %>!</a>
   		<span></span>
   	</h1>
   	<div class="main pull-right hidden-xs text-right">
-  		<span class="author"><%= data.name %></span>
+  		<a href="u/<%= data.name %>"><span class="author"><%= data.name %></span></a>
   		<span class="postTitle">
   			发表于&nbsp;
   			<i><% var str = data.time.toLocaleString(); var _str = str.split(' ') %> <%= _str[0]%></i>

@@ -2,7 +2,7 @@
 * @Author: tianxing
 * @Date:   2016-08-31 15:43:20
 * @Last Modified by:   tianxing
-* @Last Modified time: 2016-09-05 17:07:18
+* @Last Modified time: 2016-09-09 13:58:23
 */
 
 /*css样式初使化*/
@@ -210,6 +210,9 @@ body{
 	width:30%;
 	line-height:30px;
 	padding:0 10px;
+}
+.post .main>a{
+	color:#666;
 }
 .post .main .author,
 .post .main .postTitle i{
