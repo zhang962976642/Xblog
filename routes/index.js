@@ -78,6 +78,7 @@ module.exports = function(app){
 	app.get('/u/:username',getArticle.getUserArticle);
 	// 获取文章信息分类页面
 	app.get('/u/:username/:title',getArticle.getTitleArticle);
+	app.post('/u/:username/:title',userPost.userComment);
 	// 文章修改路由
 	app.post('/edit/:username/:title',validate.loginUp);
 	app.get('/edit/:username/:title',uploadArticle.articleEdit);

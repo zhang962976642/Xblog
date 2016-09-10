@@ -1,10 +1,33 @@
 <h2 class="comment">Comment</h2>
-<div class="media">
+<% docs.forEach(function(data,index){ %>
+	<% if(data.comment.length != ''){ %>
+		<% data.comment.forEach(function(comments,index){ %>
+			<div class="media">
+				<a class="media-left">
+					<img src="/images/logo.png" alt="" style="width:50px;height:50px;max-width: 50px;">
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading"><%= data.name %></h4>
+					<%- comments.commentInfo %>
+					<% var timers = comments.commentTime.toLocaleString() %><%= timers %>
+				</div>
+			</div>
+	<% }) %>
+	<% } %>
+<hr style="height:30px;">
+<!-- ejs模板 -->
+<form method="post" action="/u/<%= data.name %>/<%= data.title %>" style="width:100%;padding:0 2%;">
+	<div class="medias">
 	<a class="media-left">
 		<img src="/images/logo.png" alt="" style="width:50px;height:50px;max-width: 50px;">
 	</a>
 	<div class="media-body">
-		<h4 class="media-heading">测试回复</h4>
-		..............................这是测试回复内容
+		<h4 class="media-heading" style="margin-bottom:15px;">信息回复</h4>
+		<!-- 添加隐藏域input表单 -->
+		<input type="hidden" name="name" value="<%= data.name %>">
+		<input type="hidden" name="title" value="<%= data.title %>">
+		<textarea class="form-control" rows="10" name="comment"></textarea>
 	</div>
-</div>
+	<input class="postBtn btn btn-primary" type="submit" name="commentBnt" value="用户评论">
+</form>
+<% }) %>

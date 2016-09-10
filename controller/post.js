@@ -24,6 +24,7 @@ exports.formPost = function(req,res,next){
 		time:time,
 		info:info,
 		titleSrc:titleSrc,
+		comment:[],
 	},function(err,data){
 		if(err){
 			req.flash('error','文章发表失败,请稍后再试');
@@ -32,5 +33,33 @@ exports.formPost = function(req,res,next){
 		//写入成功
 		req.flash('success','发表成功');
 		res.redirect('/');
+	});
+};
+
+
+// 留言板处理逻辑
+exports.userComment = function(req,res,next){
+	var comment = marked(req.body.comment),
+			name = req.body.name,
+			title = req.body.title,
+			data = new Date(),
+			//查询的内容
+			searchMsg = {
+				name:name,
+				title:title,
+			},
+			//需要更新的内容
+			updateMsg = {
+				'commentInfo':comment,
+				'commentTime':data
+			};
+	// 文章内容更新使用$push往comment中插入对象userComment
+	Article.update(searchMsg,{'$push':{'comment':updateMsg}},function(err){
+		if(err){
+			req.flash('error','文章品论出错');
+			return res.redirect('/');
+		};
+		req.flash('success','文章评论完成');
+		res.redirect('back');
 	});
 };

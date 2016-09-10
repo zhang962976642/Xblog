@@ -1,2 +1,41 @@
-<%- include user.html %>
-<%- include comment.html %>
+<%- include header.html %>
+	<!--文章内容-->
+  <% docs.forEach(function(data,index){ %>
+  <article class="post">
+  	<h1 class="Title pull-left">
+  		<a href="#"><%= data.title %>!</a>
+  		<span></span>
+  	</h1>
+  	<div class="main pull-right hidden-xs text-right">
+  		<a href="#"><span class="author"><%= data.name %></span></a>
+  		<span class="postTitle">
+  			发表于&nbsp;
+  			<i><% var str = data.time.toLocaleString(); var _str = str.split(' ') %> <%= _str[0]%></i>
+  		</span>
+  		<span class="comment pull-right">
+  			<a href="#">2 comment</a>
+  		</span>
+  	</div>
+  	<div class="clearfix marginHeight"></div>
+  	<!--整体内容-->
+	<div class="articleWrap">
+		<blockquote>
+			<p>原文: <a href="<%= data.titleSrc %>"><%= data.titleSrc %></a></p>
+		</blockquote>
+		<p>
+			<%- data.info %>
+		</p>
+		<p class="more">
+			<a href="#">阅读全文<i class="fa fa-angle-double-right"></i></a>
+      <span class="pull-right btn-group">
+        <% if(user && (user == data.name) ){ %>
+        <a href="/edit/<%= data.name %>/<%= data.title %>" class="btn btn-warning">Edit Article</a>
+        <a href="/remove/<%= data.name %>/<%= data.title %>" class="btn btn-danger">Removw</a>
+        <% } %>
+      </span>
+		</p>
+	</div>
+  </article>
+  <% }) %>
+  <%- include comment.html %>
+<%- include footer.html %>

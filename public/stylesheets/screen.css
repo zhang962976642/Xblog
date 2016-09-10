@@ -2,7 +2,7 @@
 * @Author: tianxing
 * @Date:   2016-09-01 14:38:43
 * @Last Modified by:   tianxing
-* @Last Modified time: 2016-09-09 17:32:43
+* @Last Modified time: 2016-09-10 10:38:56
 */
 /*1024ipad设备的适配*/
 @media screen and (max-width: 1024px){
@@ -136,5 +136,6 @@
 	.comment,
 	.media{
 		width:100%;
+		padding:0 2%;
 	}
 }

@@ -2,7 +2,7 @@
 * @Author: tianxing
 * @Date:   2016-08-31 15:43:20
 * @Last Modified by:   tianxing
-* @Last Modified time: 2016-09-09 17:33:09
+* @Last Modified time: 2016-09-10 10:51:58
 */
 
 /*css样式初使化*/
@@ -359,13 +359,15 @@ body{
 	font-weight: 700;
 }
 /*信息回复*/
+.comment,
+.media{
+	padding:0 2%;
+}
 .comment{
-	margin:0 auto 30px;
-	width:76%;
+	margin-bottom:30px;
 	font-size:2.8rem;
 	font-weight: bold;
 }
 .media{
-	width:70%;
-	margin:0 auto;
+	border:solid 1px #fefefe;
 }

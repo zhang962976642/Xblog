@@ -9,6 +9,7 @@ var articleSchema = new mongoose.Schema({
 	info: { type: String },
 	time: { type: Date },
 	titleSrc:{ type: String, default:'http://www.xiaojuzi.com'},
+	comment: { type: Array },
 });
 
 //实例化文章模型
