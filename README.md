@@ -36,6 +36,7 @@
 3. 用户文件、图片的上传功能
 4. 实现了通过用户查找文章页面,以及通过点击文章查询到某文章页面的需求
 5. 实现了不同的用户通过session验证修改或删除自己的文章
+6. 实现文章留言板功能使用mongoose的Model.updat({查询对象参数},{修改对象参数如:'$push':{comment:{'name':'小明'}}},callback);
 
 **后续功能正在开发**
 
@@ -45,6 +46,27 @@ ps: **有必要强调一下package.json**
 "script": {
   "start": "nodemon ./bin/www"
 },
+```
+**$push往数组中添加新的信息**
+
+``` javascript
+/*后台nodejs数据处理层信息需要引入Article数据模型,以及marked高亮markdown语法支持*/
+var comment = marked(req.body.comment);
+var userComment = {
+    'name':'小明',
+};
+Model.update({name:name},{'$push':{comment:userComment}},function(err){
+    if(err){
+        return res.redirect('back');
+    };
+    res.redirect('back');
+});
+```
+``` html
+<!--前台数据获取 ejs模板 forEach循环数组获取数组下的每一个对象 获取对象值得方法是 comment.对象名-->
+<% data.forEach(function(comments,index){%>
+  <%- comments.name %>  
+<% }) %>
 ```
 
 **so你需要全局安装npdemon了，别打脸**
