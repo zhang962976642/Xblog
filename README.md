@@ -62,7 +62,7 @@ Model.update({name:name},{'$push':{comment:userComment}},function(err){
     res.redirect('back');
 });
 ```
-``` html
+``` ejs
 <!--前台数据获取 ejs模板 forEach循环数组获取数组下的每一个对象 获取对象值得方法是 comment.对象名-->
 <% data.forEach(function(comments,index){%>
   <%- comments.name %>  
