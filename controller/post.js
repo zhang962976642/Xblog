@@ -39,6 +39,7 @@ exports.formPost = function(req,res,next){
 
 // 留言板处理逻辑
 exports.userComment = function(req,res,next){
+	// 获取表单信息
 	var comment = marked(req.body.comment),
 			name = req.body.name,
 			title = req.body.title,
