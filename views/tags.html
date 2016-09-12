@@ -1,0 +1,11 @@
+<%- include header.html %>
+	<h1 class="text-center"><%= title %></h1>
+	<hr class="article-bordered">
+	<% docs.forEach(function(data,index){ %>
+		<ul class="list-unstyled" style="padding:0 2%;">
+			<li>
+				<a href="tags/<%= data %>"><%= data %></a>
+			</li>
+		</ul>
+	<% }) %>
+<%- include footer.html %>

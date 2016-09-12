@@ -76,6 +76,10 @@ module.exports = function(app){
 	});
 	// 文章归档路由
 	app.get('/archive',userPost.userArchive);
+	// 标签页面路由
+	app.get('/tags',userPost.getTags);
+		// 获取指定标签页面路由
+	app.get('/tags/:tag',userPost.userTags);
 	//用户信息页面路由
 	app.get('/u/:username',getArticle.getUserArticle);
 	// 获取文章信息分类页面

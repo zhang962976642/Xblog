@@ -1,0 +1,27 @@
+<%- include header.html %>
+<h1 class="text-center">
+		<%= title %>
+	</h1>
+	<hr class="article-bordered">
+	<% if(docs){ %>
+		<% docs.forEach(function(data,index){ %>
+			<ul class="list-unstyled listGroup">
+					<% var lastYear = null %>
+					<% var time = data.time.toLocaleString().split(' ')[0] %>
+					<% if(lastYear != time){ %>
+						<li>
+							<%= time %>
+							<% lastYear = time %>
+						</li>
+					<% } %>
+					<li>
+					<div>
+						<address>
+							<a href="/u/<%= data.name %>/<%= data.title %>"><%= data.title %></a>
+						</address>
+					</div>
+				</li>
+			</ul>
+		<% }) %>
+	<% } %>
+<%- include footer.html %>

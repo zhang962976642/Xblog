@@ -10,6 +10,11 @@ exports.formPost = function(req,res,next){
 		time = new Date(),
 		info = req.body.message,
 		titleSrc = req.body.titleSrc;
+		tarArray = [
+			req.body.tag,
+			req.body.tag2,
+			req.body.tag3,
+		]
 	// info字段markdown语法需要高亮代码
 	var info = marked(info);
 	//验证字段title是否为空
@@ -25,6 +30,7 @@ exports.formPost = function(req,res,next){
 		info:info,
 		titleSrc:titleSrc,
 		comment:[],
+		tags:tarArray,
 	},function(err,data){
 		if(err){
 			req.flash('error','文章发表失败,请稍后再试');
@@ -80,5 +86,45 @@ exports.userArchive = function(req,res,next){
 			success:req.flash('success').toString(),
 			error:req.flash('error').toString(),
 		});
+	});
+};
+// 获取所有标签页面
+exports.getTags = function(req,res,next){
+	Article.find({},null,function(err,data){
+		if(err){
+			req.flash('error',error);
+		};
+		Article.distinct('tags',function(err,data){
+			if(err){
+				req.flash('error','查找标签出错');
+				return res.redirect('back');
+			};
+			console.log(data);
+			res.render('tags',{
+				title:'标签主题页',
+				docs:data,
+				user:req.session.user,
+				success:req.flash('success').toString(),
+				error:req.flash('error').toString(),
+			});
+		})
+	});
+};
+// 获取指定的tags界面
+exports.userTags = function(req,res,next){
+	// 获取点击的tags
+	var tags = req.params.tag;
+	Article.find({tags:tags},{name:1,title:1,time:1},{sort:{time:1}},function(err,data){
+		if(err){
+			req.flash('error','标签连接出错');
+			return res.redirect('back');
+		};
+		res.render('tag',{
+			title:'Tag - ' + req.params.tag,
+			docs:data,
+			user: req.session.user,
+      success: req.flash('success').toString(),
+      error: req.flash('error').toString()
+		})
 	});
 };

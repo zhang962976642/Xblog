@@ -27,6 +27,11 @@
 		</p>
 		<p class="more">
 			<a href="#">阅读全文<i class="fa fa-angle-double-right"></i></a>
+      <% data.tags.forEach(function(tagArray,index){ %>
+        <% if(tagArray){ %>
+          <a href="/tags/<%= tagArray %>"><%= tagArray %></a>
+        <% } %>
+      <% }) %>
 		</p>
 	</div>
   </article>

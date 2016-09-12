@@ -45,11 +45,9 @@ exports.getUserArticle = function(req,res,next){
 				req.flash('error','用户不存在');
 				return res.redirect('/');
 			};
-			if(user.name == null){
-				return res.redirect('/');
-			};
+			console.log(user);
 		// 获取Article文章信息
-			Article.find({name:user.name},function(err,data){
+			Article.find({name:username},function(err,data){
 				if(err){
 					req.flash('error','文章查询错误');
 					return res.redirect('/');

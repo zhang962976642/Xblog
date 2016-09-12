@@ -24,6 +24,18 @@
   					<label for="titleSrc">文章源地址</label>
   					<input type="url" name="titleSrc" id="titleSrc" class="form-control" value="<%= data.titleSrc %>" disabled>
   				</div>
+          <div class="form-group pull-left">
+            <label for="tags">标签一</label>
+            <input type="text" name="tag" id="tags" class="form-control" value="<%= data.tags[0] %>" disabled>
+          </div>
+          <div class="form-group pull-left">
+            <label for="tagss">标签二</label>
+            <input type="text" name="tags" id="tagss" class="form-control" value="<%= data.tags[1] %>" disabled>
+          </div>
+          <div class="form-group pull-left">
+            <label for="tags3">标签三</label>
+            <input type="text" name="tagd" id="tagsd" class="form-control" value="<%= data.tags[2] %>" disabled>
+          </div>
   				<textarea class="form-control" rows="10"  placeholder="message" name="message"></textarea>
           <span class="errorMsg">
             <% if(error){ %>
