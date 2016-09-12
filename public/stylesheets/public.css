@@ -2,7 +2,7 @@
 * @Author: tianxing
 * @Date:   2016-08-31 15:43:20
 * @Last Modified by:   tianxing
-* @Last Modified time: 2016-09-12 12:08:15
+* @Last Modified time: 2016-09-12 14:16:00
 */
 
 /*css样式初使化*/
@@ -380,4 +380,15 @@ body{
 .pagrBtn-group>a{
 	text-decoration: none;
 	color:white;
+}
+/*文章归档*/
+.article-bordered{
+	background-image: line-gradient(to left, #fff,#787878,#373737,#fff);
+}
+.listGroup{
+	width:100%;
+	padding:0 2%;
+}
+.listGround li{
+	font-size:1.4rem;
 }

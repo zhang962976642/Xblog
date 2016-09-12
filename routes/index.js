@@ -74,6 +74,8 @@ module.exports = function(app){
 		req.flash('success','文件上传成功');
 		res.redirect('/post');
 	});
+	// 文章归档路由
+	app.get('/archive',userPost.userArchive);
 	//用户信息页面路由
 	app.get('/u/:username',getArticle.getUserArticle);
 	// 获取文章信息分类页面

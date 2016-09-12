@@ -64,3 +64,21 @@ exports.userComment = function(req,res,next){
 		res.redirect('back');
 	});
 };
+// 文章归档处理逻辑安卓逻辑升序排列
+exports.userArchive = function(req,res,next){
+	Article.find({},null,{sort:{time:1}},function(err,data){
+		if(err){
+			req.flash('error','归档失败请重新再试');
+			return res.redirect('/');
+		};
+		req.flash('success','归档完成');
+		// 返回信息
+		res.render('archive',{
+			title:'文章归档',
+			user:req.session.name,
+			docs:data,
+			success:req.flash('success').toString(),
+			error:req.flash('error').toString(),
+		});
+	});
+};
