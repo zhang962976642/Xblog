@@ -31,7 +31,7 @@ exports.reg = function(req,res,next){
 	User.findOne({name:name},function(err,user){
 		if(user){
 			req.flash('error','用户名已存在，请重新注册');
-			req.redirect('/');
+			res.redirect('/');
 			return ;
 		};
 		//不存在 写入到 数据库  

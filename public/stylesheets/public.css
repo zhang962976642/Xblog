@@ -2,7 +2,7 @@
 * @Author: tianxing
 * @Date:   2016-08-31 15:43:20
 * @Last Modified by:   tianxing
-* @Last Modified time: 2016-09-10 10:51:58
+* @Last Modified time: 2016-09-12 12:08:15
 */
 
 /*css样式初使化*/
@@ -370,4 +370,14 @@ body{
 }
 .media{
 	border:solid 1px #fefefe;
+}
+
+/*page分页按钮*/
+.pagrBtn-group{
+	margin-bottom:15px;
+	width:100%;
+}
+.pagrBtn-group>a{
+	text-decoration: none;
+	color:white;
 }

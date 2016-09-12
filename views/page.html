@@ -1,0 +1,10 @@
+<div class="pagrBtn-group ">
+	<div class="btn-group pull-right">
+		<% if(!lastPage){ %>
+			<a class="btn btn-danger" href="?p=<%= parseInt(page+1) %>" type="button" title="下一页">下一页</a>
+		<% } %>
+		<% if(!firstPage) { %>
+			<a class="btn btn-danger" href="?p=<%= parseInt(page-1) %>" type="button" title="上一页">上一页</a>
+		<% } %>
+	</div>
+</div>
