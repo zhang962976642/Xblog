@@ -1,0 +1,21 @@
+<%- include header.html %>
+	<div class="search">
+		<h1>站内搜索</h1>
+		<form action="/search" method="get">
+			<input type="text" name="keyword" placeholder="Search" class="form-control" style="height:40px;font-size:1.6rem;">
+			<br>
+			<input class="btn btn-primary pull-right" type="submit" name="Search">
+			<div class="clearfix"></div>
+		</form>
+	</div>
+	<hr class="article-bordered">
+	<% docs.forEach(function(data,index){ %>
+		<div style="width:100%;padding:0 2%;">
+			<h3>
+				<span><%= data.title %></span>
+				<span class="pull-right" style="font-size:1.4rem;"><% var time = data.time.toLocaleString() %><%= time %></span>
+			</h3>
+			<p><%- data.info %></p>
+		</div>
+	<% }) %>
+<%- include footer.html %>

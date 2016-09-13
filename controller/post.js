@@ -129,3 +129,25 @@ exports.userTags = function(req,res,next){
 		})
 	});
 };
+// 文章检索功能
+exports.articleSearch = function(req,res,next){
+	var keywords = req.query.keyword;
+	if(keywords == undefined){
+		keywords = 'nodejs';
+	};
+	var patten = new RegExp(keywords,'i');
+	Article.find({title:patten},{name:1,title:1,time:1,info:1},function(err,data){
+		if(err){
+			req.flash('error','文章查询出错');
+			return res.redirect('/');
+		};
+		console.log(keywords);
+		res.render('search',{
+			title:'Search - ' + keywords,
+			docs: data,
+			user: req.session.user,
+			successq: req.flash('success').toString(),
+			error:req.flash('error').toString()
+		});
+	});
+};

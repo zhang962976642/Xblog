@@ -80,6 +80,8 @@ module.exports = function(app){
 	app.get('/tags',userPost.getTags);
 		// 获取指定标签页面路由
 	app.get('/tags/:tag',userPost.userTags);
+	// 文章检索功能路由
+	app.get('/search',userPost.articleSearch);
 	//用户信息页面路由
 	app.get('/u/:username',getArticle.getUserArticle);
 	// 获取文章信息分类页面
