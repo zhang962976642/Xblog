@@ -31,6 +31,7 @@ exports.formPost = function(req,res,next){
 		titleSrc:titleSrc,
 		comment:[],
 		tags:tarArray,
+		pv:0,
 	},function(err,data){
 		if(err){
 			req.flash('error','文章发表失败,请稍后再试');

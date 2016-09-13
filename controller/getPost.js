@@ -78,12 +78,21 @@ exports.getTitleArticle = function(req,res,next){
 			req.flash('error','文章查询失败');
 			return res.redirect('/');
 		};
-		res.render('article',{
-			title:username,
-			docs:data,
-			user:req.session.user,
-			success:req.flash('success').toString(),
-			error:req.flash('error').toString(),		
-		});
+		if(data){
+			// 设置每点击一次文章，那么此文章内的Pv值自动加1  $inc是自加1  ,  $push 是往数组内部添加内容
+			Article.update({'name':username,'title':title},{$inc:{pv:1}},function(err){
+				if(err){
+					req.flash('error','文章查询Pv错误');
+					return res.redirect('back');
+				};
+				res.render('article',{
+					title:username,
+					docs:data,
+					user:req.session.user,
+					success:req.flash('success').toString(),
+					error:req.flash('error').toString(),		
+				});
+			});
+		};
 	});
 };

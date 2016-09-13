@@ -13,7 +13,7 @@
   			<i><% var str = data.time.toLocaleString(); var _str = str.split(' ') %> <%= _str[0]%></i>
   		</span>
   		<span class="comment pull-right">
-  			<a href="#">2 comment</a>
+  			<a href="#"><%= data.comment.length %> comment</a>
   		</span>
   	</div>
   	<div class="clearfix marginHeight"></div>
@@ -39,6 +39,9 @@
         <% } %>
       </span>
 		</p>
+    <p class="text-right" style="margin-bottom: 0;">
+      Pv: <%= data.pv %>
+    </p>
 	</div>
   </article>
   <% }) %>
