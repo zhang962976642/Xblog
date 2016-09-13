@@ -151,3 +151,12 @@ exports.articleSearch = function(req,res,next){
 		});
 	});
 };
+// 友情链接逻辑
+exports.userLink = function(req,res,next){
+	res.render('links',{
+		title:'友情链接',
+		user:req.session.user,
+		success:req.flash('success','友情链接'),
+		error:req.flash('error','links友情链接出错')
+	});
+};

@@ -82,6 +82,8 @@ module.exports = function(app){
 	app.get('/tags/:tag',userPost.userTags);
 	// 文章检索功能路由
 	app.get('/search',userPost.articleSearch);
+	// 友情链接路由
+	app.get('/link',userPost.userLink);
 	//用户信息页面路由
 	app.get('/u/:username',getArticle.getUserArticle);
 	// 获取文章信息分类页面
