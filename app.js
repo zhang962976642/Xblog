@@ -56,9 +56,13 @@ Routes(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-	var err = new Error('Not Found');
-	err.status = 404;
-	next(err);
+	// var err = new Error('Not Found');
+	// err.status = 404;
+	// next(err);
+	// 渲染views/404页面
+	res.render('404',{
+		title:'404 No Found'
+	});
 });
 
 // error handlers
