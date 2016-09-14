@@ -1,6 +1,7 @@
 // 引入marked语法高亮配置文件
 var marked = require('../config/marked');
 // 导入文章Schema模型
+var User = require('../models/user');
 var Article = require('../models/article');
 //post文章发表处理程序
 exports.formPost = function(req,res,next){
@@ -59,7 +60,8 @@ exports.userComment = function(req,res,next){
 			//需要更新的内容
 			updateMsg = {
 				'commentInfo':comment,
-				'commentTime':data
+				'commentTime':data,
+				'commentUser':req.session.user,
 			};
 	// 文章内容更新使用$push往comment中插入对象userComment
 	Article.update(searchMsg,{'$push':{'comment':updateMsg}},function(err){
@@ -84,6 +86,7 @@ exports.userArchive = function(req,res,next){
 			title:'文章归档',
 			user:req.session.name,
 			docs:data,
+			img:userimg,
 			success:req.flash('success').toString(),
 			error:req.flash('error').toString(),
 		});
@@ -133,7 +136,7 @@ exports.userTags = function(req,res,next){
 exports.articleSearch = function(req,res,next){
 	var keywords = req.query.keyword;
 	if(keywords == undefined){
-		keywords = 'nodejs';
+		keywords = '';
 	};
 	var patten = new RegExp(keywords,'i');
 	Article.find({title:patten},{name:1,title:1,time:1,info:1},function(err,data){

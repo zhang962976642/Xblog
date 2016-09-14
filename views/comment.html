@@ -4,10 +4,10 @@
 		<% data.comment.forEach(function(comments,index){ %>
 			<div class="media">
 				<a class="media-left">
-					<img src="/images/logo.png" alt="" style="width:50px;height:50px;max-width: 50px;">
+					<img src="<%= userImg[0].head %>" alt="" style="width:50px;height:50px;max-width: 50px;">
 				</a>
 				<div class="media-body">
-					<h4 class="media-heading"><%= data.name %></h4>
+					<h4 class="media-heading"><%= comments.commentUser %></h4>
 					<%- comments.commentInfo %>
 					<% var timers = comments.commentTime.toLocaleString() %><%= timers %>
 				</div>

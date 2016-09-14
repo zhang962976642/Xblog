@@ -27,6 +27,9 @@ exports.reg = function(req,res,next){
 	//MD5加密密码password
 	var md5 = crypto.createHash('md5'),
 		password = md5.update(req.body.password).digest('hex');
+	var md5 = crypto.createHash('md5'),
+		email_MD5 = md5.update(email.toLowerCase()).digest('hex'),
+		head = 'http://www.gravatar.com/avatar/'+email_MD5+'?s=48';
 	//判断数据库用户注册的用户名是否存在 存在抛出  用户名注册的提示
 	User.findOne({name:name},function(err,user){
 		if(user){
@@ -38,12 +41,14 @@ exports.reg = function(req,res,next){
 		User.create({
 			name:name,
 			password:password,
-			email:email
+			email:email_MD5,
+			head:head
 		},function(err,data){
 			if(err){
 				req.flash('error','注册失败,请重新注册');
 				return req.redirect('/reg');
 			};
+			console.log(123);
 			//写入session
 			req.session.user = name;
 			//注册成功

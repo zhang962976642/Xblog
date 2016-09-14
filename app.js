@@ -19,6 +19,10 @@ var settings = require('./config/settings');
 //引入注册页面/登录页面控制层
 var userReg = require('./controller/reg');
 //实例化 express对象
+// 生成日志
+var fs = require('fs');
+var accessLog = fs.createWriteStream('access.log',{flags:'a'});
+var errorLog = fs.createWriteStream('error.log',{flags:'a'});
 var app = express();
 
 // view engine setup
@@ -30,6 +34,8 @@ app.engine('.html', require('ejs').__express);
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public/images/favicon.ico')));
 app.use(logger('dev'));
+// 添加日志
+app.use(logger({stream:accessLog}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended: false
@@ -49,6 +55,11 @@ app.use(session({
 	}),
 }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(function(err,req,res,next){
+	var meta = '[' + new Date() + ']' + req.url +'\n';
+	errorLog.write(meta+err.stack + '\n');
+	next();
+});
 //实例化flash中间件   注:必须先写入session在使用falsh中间件
 app.use(flash());
 //引用路由实例模块   注:所有中间件必须现在路由模块加载之前 加载使用
