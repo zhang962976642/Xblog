@@ -43,7 +43,10 @@
 10.  实现了文章Pv统计,以及用户回复统计
 11.  新增文章索引功能,查询文章 
 12.  新增友情链接
-13.  新增404页面,修改app.js下的 app.use(function(req,res,next){res.render('404',{title:'404 No Found'})});  
+13.  新增404页面,修改app.js下的 app.use(function(req,res,next){res.render('404',{title:'404 No Found'})});
+14.  新增用户头像 
+15.  实现转载记录
+16.  添加日志记录    
 
 **后续功能正在开发**
 
